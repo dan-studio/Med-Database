@@ -1,0 +1,26 @@
+body{
+  margin: 0;
+}
+header{
+  height:35px;
+  background-color: #112;
+  color: white;
+}
+.title{
+  font-size: 16px;
+  margin: 5px;
+}
+.madeBy{
+  font-size: 12px;
+}
+.input-group{
+  width: 100%;
+  margin: 30px auto;
+  color:#333;
+}
+.registerbar{
+  margin-right: 30px;
+}
+.select{
+  height: 38px;
+}
