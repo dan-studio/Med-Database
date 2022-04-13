@@ -21,6 +21,9 @@ header{
 .registerbar{
   margin-right: 30px;
 }
+.deletebutton{
+  color: rgb(255, 67, 67);
+}
 .select{
   height: 38px;
 }

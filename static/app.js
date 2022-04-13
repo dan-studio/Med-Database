@@ -4,7 +4,7 @@ $(document).ready(function () {
   show();
 });
 
-function getListValue(){
+function getListValue() {
   let listValue = $('#sort').val();
   console.log(listValue)
 }
@@ -32,8 +32,8 @@ function register() {
       } else if (prodName.length == 0) {
         alert("제품명을 입력하세요!")
       } else {
-        alert(response["msg"]);//데이터 
-        
+        alert(response["msg"]); //데이터 
+
         window.location.reload();
       }
     }
@@ -61,11 +61,26 @@ function show() {
                               <td>${prodName}</td>
                               <td>${regDate}</td>
                               <td></td>
+                              <td><a href="#" onclick="deleteProd('${prodName}')" class="deletebutton">삭제</a></td>
                             </tr>`;
         //등록순에 따라 순서 삽입하기.
         $("#medList").append(temp_html);
         console.log(lists[i])
       }
+    }
+  })
+}
+
+function deleteProd(prodName) {
+  $.ajax({
+    type: 'POST',
+    url: '/delete',
+    data: {
+      name_give: prodName
+    },
+    success: function (response) {
+      alert(response['msg']);
+      window.location.reload()
     }
   })
 }
