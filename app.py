@@ -38,7 +38,7 @@ def register_product():
 def delete_product():
     name_receive = request.form['name_give']
     db.products.delete_one({'prodName':name_receive})
-    return jsonify({'msg': '삭제가 완료되었습니다!'})  
+    return jsonify({'msg': '삭제가 완료되었어요!'})  
 
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)
