@@ -61,7 +61,7 @@ function show() {
                               <td>${prodName}</td>
                               <td>${regDate}</td>
                               <td></td>
-                              <td><a href="#" onclick="confirmAction(deleteProd('${prodName}'))" class="deletebutton">삭제</a></td>
+                              <td><a href="#" onclick="deleteConfirm('${prodName}')" class="deletebutton">삭제</a></td>
                             </tr>`;
         //등록순에 따라 순서 삽입하기.
         $("#medList").append(temp_html);
@@ -70,29 +70,25 @@ function show() {
     }
   })
 }
-function deleteProd(prodName) {
-  $.ajax({
-    type: 'POST',
-    url: '/delete',
-    data: {
-      name_give: prodName
-    },
+
+function deleteConfirm(prodName) {
+  let confirmAction = confirm("정말로 삭제하시겠어요?");
+  if (confirmAction == true) {
+    $.ajax({
+      type: 'POST',
+      url: '/delete',
+      data: {
+        name_give: prodName
+      },
       success: function (response) {
         alert(response['msg']);
         window.location.reload()
       }
-  })
-}
-
-function confirmAction(){
-  let confirmAction = confirm("정말로 삭제하시겠어요?");
-  if(confirmAction){
-    deleteProd()
-  }else{
+    })
+  } else {
     alert("삭제가 취소되었어요!")
   }
 }
-
 
 function search() {
   let txt = $("#search").val();
