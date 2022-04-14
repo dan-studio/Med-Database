@@ -1,22 +1,22 @@
 
-from flask import Flask, render_template, jsonify, request, url_for, session
+from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
 from pymongo import MongoClient
 
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.medDB
 
 #HTML을 주는 부분
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('login.html')
 
 #로그인 페이지
-@app.route('/login')
+@app.route('/index')
 def login():
-    return render_template('login.html')
+    return render_template('index.html')
 
 #회원가입 페이지
 @app.route('/register')
@@ -24,7 +24,7 @@ def register():
     return render_template('register.html')
 
 #회원가입 기능
-@app.route('/register', methods=["GET","POST"])
+@app.route('/reg', methods=['POST', 'GET'])
 def register_member():
   userID_receive = request.form['userID_give']
   userPW_receive = request.form['userPW_give']
@@ -48,13 +48,6 @@ def register_member():
   return jsonify({'msg':'회원가입 완료! 승인을 기다려주세요!'})
 
 #로그인 기능
-@app.route('/', methods=["GET", "POST"])
-def login_member():
-  if 'userName' in session:
-    return  session['userName'] + ' 님이 로그인 하였습니다.'
-  return render_template('index.html')
-
-@app.route('/login', methods=["GET", "POST"])
 
 #제품 리스트 가져오기
 @app.route('/list', methods=['GET'])

@@ -26,7 +26,7 @@ function registerMember() {
   } else {
     $.ajax({
       type: "POST",
-      url: "/register",
+      url: "/reg",
       data: {
         userID_give: userid,
         userName_give: username,
