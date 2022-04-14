@@ -18,6 +18,13 @@ img{
 .madeBy{
   font-size: 12px;
 }
+.logoutButton{
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  float: right;
+  padding: 7px 30px;
+}
 .input-group{
   width: 100%;
   margin: 30px auto;
@@ -34,6 +41,10 @@ img{
   color: rgb(255, 67, 67);
   display: inline;
   margin-left: 30px;
+}
+.notice{
+  color:rgb(255, 67, 67);
+  margin: 20px;
 }
 .deletebutton{
   color: rgb(255, 67, 67);

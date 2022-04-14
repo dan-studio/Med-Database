@@ -1,20 +1,24 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, url_for
 app = Flask(__name__)
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://test:test@localhost', 27017)
-# client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://test:test@localhost', 27017)
+client = MongoClient('localhost', 27017)
 db = client.medDB
 
 #HTML을 주는 부분
 @app.route('/')
 def home():
-    return render_template('main.html')
-
-@app.route('/index')
-def index():
     return render_template('index.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
 @app.route('/list', methods=['GET'])
 def list_product():

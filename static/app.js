@@ -55,7 +55,6 @@ function show() {
         let regDate = lists[i]['regDate']
 
         var temp_html = `<tr>
-                              <td>${index}</td>
                               <td>${sort}</td>
                               <td>${compName}</td>
                               <td>${prodName}</td>
