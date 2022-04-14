@@ -24,20 +24,27 @@
     <span class="title madeBy">by <strong>Daniel</strong></span>
   </header>
   <h1>로그인</h1>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">User ID</span>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form method=POST action="{{ url_for('login') }}">
+          <div class="form-group">
+            <label for="exampleInputEmail1">User ID</label>
+            <input type="text" class="form-control" name="username" placeholder="User ID" id="userid">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="pass" placeholder="Password" id="userpassword">
+          </div>
+          <button onclick="login()" type="submit" class="btn btn-white btn-block">로그인</button>
+        </form>
+        <br>
+        <div>
+          아이디가 없으신가요? <a href="{{ url_for('register') }}">회원가입</a>
+        </div>
+      </div>
     </div>
-    <input type="id" class="form-control">
   </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Password</span>
-    </div>
-    <input type="password" class="form-control">
-  </div>
-  <button onclick="window.location.href='/'" class="btn btn-white">로그인</button>
-  <a href="{{url_for('register')}}">아이디가 없으신가요?</a>
   <script src="{{ url_for('static',filename='app.js') }}"> </script>
   <!--flask js 호출-->
 </body>
