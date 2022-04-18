@@ -36,6 +36,9 @@ img{
 .regcomment h6{
   display: inline;
 }
+.inline{
+  display: inline;
+}
 .regcomment p{
   font-size: 11px;
   color: rgb(255, 67, 67);

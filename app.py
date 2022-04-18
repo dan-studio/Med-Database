@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
@@ -26,13 +25,13 @@ def register():
 #회원가입 기능
 @app.route('/reg', methods=['POST', 'GET'])
 def register_member():
-  userID_receive = request.form['userID_give']
+  userEmail_receive = request.form['userEmail_give']
   userPW_receive = request.form['userPW_give']
   userPW_receive2 = request.form['userPW_give2']
   userName_receive = request.form['userName_give']
   userStatus_receive = request.form['userStatus_give']
   userInfo = {
-    'userID' : userID_receive,
+    'userEmail' : userEmail_receive,
     'userPW' : userPW_receive,
     'userPW2' : userPW_receive2,
     'userName' : userName_receive,
